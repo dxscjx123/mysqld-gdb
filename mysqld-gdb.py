@@ -1110,7 +1110,7 @@ class Prealloced_arrayPrinter(object):
     def children(self):
         nodetype = self.typename.template_argument(0)
         inline_size = self.val['m_inline_size']
-        return self._iterator(nodetype, self.val['m_buff'] if inline_size >= 0 else self.val['ext']['m_array_ptr'], self.size())
+        return self._iterator(nodetype, self.val['m_buff'] if inline_size >= 0 else self.val['m_ext']['m_array_ptr'], self.size())
 
     def size(self):
         inline_size = self.val['m_inline_size']
