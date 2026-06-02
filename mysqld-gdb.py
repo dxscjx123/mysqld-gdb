@@ -440,6 +440,15 @@ class ItemDisplayer(object):
             db_cata.append(item['field_name'].string())
         return 'field = ' + '.'.join(db_cata)
 
+    def show_Item_field(self, item):
+        info = self.show_Item_ident(item)
+        table_ref = item['table_ref']
+        if table_ref:
+            alias = table_ref['alias']
+            if alias:
+                info += ', table_name = ' + alias.string()
+        return info
+
     def show_Item_int(self, item):
         return 'value = ' + str(item['value'])
 
