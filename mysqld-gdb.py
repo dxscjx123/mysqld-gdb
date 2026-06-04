@@ -447,6 +447,14 @@ class ItemDisplayer(object):
             alias = table_ref['alias']
             if alias:
                 info += ', table_name = ' + alias.string()
+        else:
+            field = item['field']
+            if field:
+                table_name_ptr = field['table_name']
+                if table_name_ptr:
+                    table_name = table_name_ptr.dereference()
+                    if table_name:
+                        info += ', table_name = ' + table_name.string()
         return info
 
     def show_Item_int(self, item):
